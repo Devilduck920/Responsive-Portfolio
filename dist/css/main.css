@@ -24,7 +24,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
@@ -38,6 +37,7 @@
     height: 100vh;
     overflow: hidden; }
   .menu-nav {
+    opacity: 0.9;
     margin: 0;
     padding: 0;
     background: #373737;
@@ -57,6 +57,18 @@
       height: 250px;
       background: url("../img/portrait.jpg");
       border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: solid 3px #eece1a; }
+    .menu-branding .portrait_small {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait_small.jpg");
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       border: solid 3px #eece1a; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
@@ -160,7 +172,7 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-areas: 'bioimage bio bio';
   grid-template-columns: repeat(3, 1fr); }
   .about-info .bio-image {
     grid-area: bioimage;
@@ -172,14 +184,22 @@ main {
     font-size: 1.5rem; }
   .about-info .job-1 {
     grid-area: job1; }
-  .about-info .job-2 {
-    grid-area: job2; }
-  .about-info .job-3 {
-    grid-area: job3; }
   .about-info .job {
     background: #515151;
     padding: 0.5rem;
-    border-bottom: #eece1a 5px solid; }
+    border-bottom: #eece1a 5px solid;
+    margin: 0 0 10px 0; }
+
+ul {
+  border: 3px solid #eece1a;
+  display: flex;
+  justify-content: space-around;
+  padding: 3.1em; }
+  ul li {
+    font-size: 1.2em;
+    display: inline-block;
+    align-items: center;
+    padding: 0 1.1em; }
 
 .projects {
   display: grid;
@@ -192,6 +212,44 @@ main {
       opacity: 0.5;
       border-color: #eece1a;
       transition: all 0.5s ease-out; }
+
+.landingLink {
+  text-align: center;
+  margin-top: 3rem; }
+  .landingLink a {
+    padding: 1.5rem 2.5rem;
+    border: 3px solid #eece1a;
+    border-radius: 30%;
+    font-size: 1.5em; }
+    .landingLink a:hover {
+      padding: 1rem 1.5rem;
+      background: #eece1a;
+      color: #000; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    width: 100%;
+    font-size: 2em;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    transition: all 0.5s ease-out; }
+    .boxes div.icon {
+      display: flex;
+      width: 25%;
+      align-items: center;
+      justify-content: center; }
+    .boxes div:hover {
+      padding: 0.5rem 1.5rem;
+      background: #eece1a;
+      color: #000; }
+      .boxes div:hover span {
+        color: #000; }
 
 .btn, .btn-dark, .btn-light {
   display: block;
@@ -258,7 +316,12 @@ main {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; }
+  main {
+    padding: 2rem; }
+    main #home h1 {
+      margin-top: 10vh; }
+    main .lg-heading {
+      margin-top: 1rem;
+      font-size: 5rem; }
   .projects {
     grid-template-columns: 1fr; } }
